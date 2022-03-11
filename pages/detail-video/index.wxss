@@ -1,0 +1,44 @@
+/* pages/detail-video/index.wxss */
+.detail {
+    padding-top: 225px;
+}
+
+.video {
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    /* height: 225px; */
+}
+
+.container {
+    width: 100%;
+    padding: 25rpx;
+    box-sizing: border-box;
+}
+
+.content .content-title {
+    font-size: 40rpx;
+    font-weight: 700;
+}
+
+.info,
+.name {
+    margin-top: 20rpx;
+    color: #666;
+    font-size: 24rpx;
+}
+
+.info {
+    display: flex;
+}
+
+.related {
+    margin-top: 50rpx;
+}
+
+.related .related-title {
+    font-size: 40rpx;
+    font-weight: 500;
+}

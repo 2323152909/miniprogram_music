@@ -1,0 +1,58 @@
+/* components/ranking-area-item/index.wxss */
+.ranking {
+    background-color: #ecefec;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    border-radius: 12rpx;
+    padding: 20rpx;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 30rpx;
+    font-weight: 700;
+}
+
+.info {
+    margin-top: 20rpx;
+}
+
+.info .info-item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 24rpx;
+    white-space: nowrap;
+    margin-top: 10rpx;
+}
+
+.info .info-item .item-name {
+    color: #777;
+}
+
+.album {
+    width: 220rpx;
+    position: relative;
+    margin-left: 20rpx;
+}
+
+.album .image {
+    width: 100%;
+    border-radius: 12rpx;
+}
+
+.album .play-count {
+    position: absolute;
+    right: 15rpx;
+    bottom: 15rpx;
+    font-size: 24rpx;
+    color: #fff;
+    padding: 8rpx 10rpx;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 12rpx;
+}

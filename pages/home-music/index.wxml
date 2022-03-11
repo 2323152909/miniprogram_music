@@ -1,0 +1,44 @@
+<!--pages/home-music/index.wxml-->
+<!-- 1.歌曲搜索 -->
+<van-search placeholder="搜索喜欢的歌曲" background="#fafafa" shape="round" bind:click-input="handleSearchClick" />
+
+<!-- 2.轮播图 -->
+<swiper class="swiper" autoplay interval="2000" circular indicator-dots style="height:{{swiperHeight}}px;">
+    <block wx:for="{{banners}}" wx:key="bannerId">
+        <swiper-item itemid="{{index}}" class="swiper-item">
+            <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="handleSwiperImageLoaded"></image>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 3.推荐歌曲 -->
+<view class="recommend-song home-item" wx:if="{{recommendSongs.length > 0}}">
+    <area-header title="热歌推荐"></area-header>
+    <view class="song-list">
+        <block wx:for="{{recommendSongs}}" wx:key="id">
+            <song-item-version1 item="{{item}}"></song-item-version1>
+        </block>
+    </view>
+</view>
+
+<!-- 4.热门歌单 -->
+<view class="hot-list home-item" wx:if="{{hotSongMenu.length > 0}}">
+    <area-header title="热门歌单"></area-header>
+    <song-menu-area songMenu="{{hotSongMenu}}"></song-menu-area>
+</view>
+
+<!-- 4.推荐歌单 -->
+<view class="recommend-list home-item" wx:if="{{recommendSongMenu.length > 0}}">
+    <area-header title="推荐歌单"></area-header>
+    <song-menu-area songMenu="{{recommendSongMenu}}"></song-menu-area>
+</view>
+
+<!-- 5.巅峰榜 -->
+<view class="ranking home-item">
+    <area-header title="巅峰榜" showRight="{{false}}"></area-header>
+    <view class="ranking-list">
+        <block wx:for="{{rankings}}" wx:key="id">
+            <ranking-area-item item="{{item}}"></ranking-area-item>
+        </block>
+    </view>
+</view>
