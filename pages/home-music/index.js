@@ -1,6 +1,7 @@
 // pages/home-music/index.js
 import {
-    rankingStore
+    rankingStore,
+    rankingMap
 } from "../../store/index"
 
 import {
@@ -106,6 +107,20 @@ Page({
         originRankings.push(rankingObj)
         this.setData({
             rankings: originRankings
+        })
+    },
+    // 子组件点击个更多的自定义事件传递监听
+    handleRightClick() {
+        this.navigateToDetailSongsPage("hotRanking")
+    },
+    handleRankingItemClick(event) {
+        const rankingId = event.currentTarget.dataset.id
+        const rankingName = rankingMap[rankingId]
+        this.navigateToDetailSongsPage(rankingName)
+    },
+    navigateToDetailSongsPage(rankingName) {
+        wx.navigateTo({
+            url: `/pages/detail-songs/index?ranking=${rankingName}&type=rank`,
         })
     }
 })

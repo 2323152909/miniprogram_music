@@ -23,6 +23,24 @@
                     "pathName": "pages/detail-video/index",
                     "query": "id=14498401",
                     "scene": null
+                },
+                {
+                    "name": "pages/detail-songs/index",
+                    "pathName": "pages/detail-songs/index",
+                    "query": "ranking=hotRanking",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail-songs/index",
+                    "pathName": "pages/detail-songs/index",
+                    "query": "id=7044174061&type=menu",
+                    "scene": null
+                },
+                {
+                    "name": "pages/detail-search/index",
+                    "pathName": "pages/detail-search/index",
+                    "query": "",
+                    "scene": null
                 }
             ]
         }

@@ -13,7 +13,7 @@
 
 <!-- 3.推荐歌曲 -->
 <view class="recommend-song home-item" wx:if="{{recommendSongs.length > 0}}">
-    <area-header title="热歌推荐"></area-header>
+    <area-header title="热歌推荐" bind:handleRightClick="handleRightClick"></area-header>
     <view class="song-list">
         <block wx:for="{{recommendSongs}}" wx:key="id">
             <song-item-version1 item="{{item}}"></song-item-version1>
@@ -38,7 +38,7 @@
     <area-header title="巅峰榜" showRight="{{false}}"></area-header>
     <view class="ranking-list">
         <block wx:for="{{rankings}}" wx:key="id">
-            <ranking-area-item item="{{item}}"></ranking-area-item>
+            <ranking-area-item item="{{item}}" bindtap="handleRankingItemClick" data-id="{{item.id}}"></ranking-area-item>
         </block>
     </view>
 </view>

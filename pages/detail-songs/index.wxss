@@ -1,0 +1,8 @@
+/* pages/detail-songs/index.wxss */
+page {
+    padding: 0 20rpx 20rpx;
+}
+
+.header {
+    width: 100%;
+}
