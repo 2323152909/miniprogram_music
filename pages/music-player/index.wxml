@@ -1,0 +1,47 @@
+<!--pages/music-player/index.wxml-->
+<!-- 1.背影 -->
+<image class="bg-image" src="{{currentSong.al.picUrl}}" mode="aspectFill"></image>
+<view class="bg-cover"></view>
+
+<!-- 2.导航 -->
+<navigation-bar>
+    <view slot="center" class="tab">
+        <view class="{{currentPage === 0 ? 'active':''}}">歌曲</view>
+        <view class="divider">|</view>
+        <view class="{{currentPage === 1 ? 'active':''}}">歌词</view>
+    </view>
+</navigation-bar>
+
+<!-- 3.内容展示 -->
+<swiper class="content" style="height:{{contentHeight}}px" bindchange="handleSwiperChange">
+    <swiper-item class="music">
+        <view class="album">
+            <image class="image" mode="heightFix" src="{{currentSong.al.picUrl}}"></image>
+        </view>
+        <view class="info">
+            <view class="title">{{currentSong.name}}</view>
+            <view class="subtitle">
+                <view class="singer">{{currentSong.ar[0].name}}</view>
+                <view class="alias">专辑：《{{currentSong.alia[0]}}》</view>
+            </view>
+        </view>
+        <view class="lyric">
+            我是歌词，哈哈哈
+        </view>
+        <view class="progress">
+            <slider block-size="{{12}}" class="slider"></slider>
+            <view class="time">
+                <view class="current">01:22</view>
+                <view class="duration">04:33</view>
+            </view>
+        </view>
+        <view class="operation">
+            <image class="btn btn-mode" src="{{playOrderImg}}" mode="widthFix"></image>
+            <image mode="widthFix" class="btn btn-prev" src="{{playPrevImg}}"></image>
+            <image mode="widthFix" class="btn btn-pause" src="{{playPauseImg}}"></image>
+            <image mode="widthFix" class="btn btn-next" src="{{playNextImg}}"></image>
+            <image mode="widthFix" class="btn btn-music" src="{{playMusicImg}}"></image>
+        </view>
+    </swiper-item>
+    <swiper-item>2</swiper-item>
+</swiper>

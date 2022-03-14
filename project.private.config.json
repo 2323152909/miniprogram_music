@@ -41,6 +41,18 @@
                     "pathName": "pages/detail-search/index",
                     "query": "",
                     "scene": null
+                },
+                {
+                    "name": "pages/detail-search/index",
+                    "pathName": "pages/detail-search/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/music-player/index",
+                    "pathName": "pages/music-player/index",
+                    "query": "id=1901371647",
+                    "scene": null
                 }
             ]
         }

@@ -1,6 +1,15 @@
 /* pages/detail-search/index.wxss */
 page {
-    padding: 0 20rpx;
+    padding: 112rpx 20rpx 0;
+}
+
+/* 搜索框 */
+.search {
+    position: fixed;
+    top: 0;
+    left: 20rpx;
+    right: 20rpx;
+    z-index: 999;
 }
 
 /* 热门搜索 */
@@ -50,4 +59,15 @@ page {
 
 .suggest .list-item .text {
     font-size: 28rpx;
+}
+
+/* 搜索结果 */
+.result {
+    padding-bottom: 20rpx;
+}
+
+.result .title {
+    color: #26ce8a;
+    font-size: 34rpx;
+    font-weight: 700;
 }

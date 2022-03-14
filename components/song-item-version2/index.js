@@ -8,9 +8,9 @@ Component({
             type: Object,
             value: {}
         },
-        index:{
-            type:Number,
-            value:0
+        index: {
+            type: Number,
+            value: 0
         }
     },
 
@@ -25,6 +25,11 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        handleSongItemClick() {
+            const id = this.properties.item.id
+            wx.navigateTo({
+                url: `/pages/music-player/index?id=${id}`,
+            })
+        }
     }
 })
