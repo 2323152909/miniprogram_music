@@ -29,9 +29,7 @@ Component({
      */
     methods: {
         handleLeftClick() {
-            wx.navigateBack({
-                delta: 0,
-            })
+            this.triggerEvent("handleLeftClick")
         }
     }
 })

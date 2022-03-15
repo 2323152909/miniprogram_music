@@ -77,6 +77,8 @@ page {
     align-items: center;
     justify-content: center;
     flex: 1;
+    font-size: 28rpx;
+    color: #0f0;
 }
 
 /* 进度 */
@@ -123,4 +125,34 @@ page {
 .operation .btn-pause {
     width: 130rpx;
     height: 130rpx;
+}
+
+/* 歌词页央视 */
+.lyric-list {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.lyric-list .lyric-item {
+    height: 35px;
+    line-height: 35px;
+    font-size: 28rpx;
+    text-align: center;
+    color: #989898;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lyric-list .lyric-item.active {
+    color: #26ce8a;
+    font-size: 36rpx;
 }
