@@ -31,6 +31,7 @@ Page({
         playModeIndex: 0, //0：循环播放 1：单曲循环 2：随机播放
         isSliderChanging: false,
         lyricScrollTop: 0,
+        sliderValue: 0, //音乐进度滑块的值，与currentTime相等，但是不建议使用同一个
 
         currentPage: 0,
         // 静态文件
@@ -118,19 +119,19 @@ Page({
             currentLyricText,
         }) => {
             // 时间变化
-            if (currentTime && !this.data.isSliderChanging) {
+            if (currentTime !== undefined && !this.data.isSliderChanging) {
                 this.setData({
                     currentTime
                 })
             }
             // 歌词变化
-            if (currentLyricIndex) {
+            if (currentLyricIndex !== undefined) {
                 this.setData({
                     currentLyricIndex,
                     lyricScrollTop: currentLyricIndex * 35
                 })
             }
-            if (currentLyricText) {
+            if (currentLyricText !== undefined) {
                 this.setData({
                     currentLyricText
                 })
@@ -200,7 +201,7 @@ Page({
         wx.navigateBack()
     },
     handleAudioPlayOrPause() {
-        playerStore.dispatch("operationPlayAction")
+        playerStore.dispatch("operationPlayAction", !this.data.isPlaying)
     },
     handleSwiperChange(event) {
         const currentPage = event.detail.current
@@ -210,13 +211,13 @@ Page({
     },
     handleSliderChange(event) {
         // 1.获取slider变化的值得到当前播放时间currentTime
-        const currentTime = event.detail.value
+        const sliderValue = event.detail.value
         // 2.设置context播放currentTime位置的音乐
-        audioContext.pause()
-        audioContext.seek(currentTime / 1000)
+        // audioContext.pause()
+        audioContext.seek(sliderValue / 1000)
         // 3.设置时间,确定滑块此时没有滑动
         this.setData({
-            currentTime,
+            // currentTime,
             isSliderChanging: false
         })
     },
@@ -236,6 +237,14 @@ Page({
         playerStore.dispatch("operationModeAction", {
             playModeIndex
         })
+    },
+    // 点击上一首
+    handlePrevBtnClick() {
+        playerStore.dispatch("changeNewMusicAction", false)
+    },
+    // 点击下一首
+    handleNextBtnClick() {
+        playerStore.dispatch("changeNewMusicAction")
     },
     /**
      * 生命周期函数--监听页面卸载

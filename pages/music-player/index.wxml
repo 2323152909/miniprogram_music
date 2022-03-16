@@ -31,7 +31,7 @@
             {{currentLyricText}}
         </view>
         <view class="progress">
-            <slider block-size="{{12}}" class="slider" max="{{durationTime}}" value="{{currentTime}}" bindchange="handleSliderChange" bindchanging="handleSliderChanging"></slider>
+            <slider block-size="{{12}}" class="slider" max="{{durationTime}}" value="{{sliderValue}}" bindchange="handleSliderChange" bindchanging="handleSliderChanging"></slider>
             <view class="time">
                 <view class="current">{{format.formatDuration(currentTime)}}</view>
                 <view class="duration">{{format.formatDuration(durationTime)}}</view>
@@ -39,9 +39,9 @@
         </view>
         <view class="operation">
             <image class="btn btn-mode" src="{{playModeIndex ===0?playModeOrder: playModeIndex === 1? playModeRepeat:playModeRandom}}" mode="widthFix" bindtap="handleModeClick"></image>
-            <image mode="widthFix" class="btn btn-prev" src="{{playPrevImg}}"></image>
+            <image mode="widthFix" class="btn btn-prev" src="{{playPrevImg}}" bindtap="handlePrevBtnClick"></image>
             <image mode="widthFix" class="btn btn-pause" src="{{isPlaying?playPauseImg:playResumeImg}}" bindtap="handleAudioPlayOrPause"></image>
-            <image mode="widthFix" class="btn btn-next" src="{{playNextImg}}"></image>
+            <image mode="widthFix" class="btn btn-next" src="{{playNextImg}}" bindtap="handleNextBtnClick"></image>
             <image mode="widthFix" class="btn btn-music" src="{{playMusicImg}}"></image>
         </view>
     </swiper-item>

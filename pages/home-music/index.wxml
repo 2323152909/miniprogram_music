@@ -16,7 +16,7 @@
     <area-header title="热歌推荐" bind:handleRightClick="handleRightClick"></area-header>
     <view class="song-list">
         <block wx:for="{{recommendSongs}}" wx:key="id">
-            <song-item-version1 item="{{item}}"></song-item-version1>
+            <song-item-version1 item="{{item}}" bindtap="handleSongItemCLick" data-index="{{index}}"></song-item-version1>
         </block>
     </view>
 </view>
@@ -40,5 +40,18 @@
         <block wx:for="{{rankings}}" wx:key="id">
             <ranking-area-item item="{{item}}" bindtap="handleRankingItemClick" data-id="{{item.id}}"></ranking-area-item>
         </block>
+    </view>
+</view>
+
+<!-- 播放工具栏 -->
+<view class="play-bar-placeholder" wx:if="{{currentSong.id}}"></view>
+<view class="play-bar" wx:if="{{currentSong.id}}" bindtap="handlePlayBarClick">
+    <view class="left">
+        <image mode="aspectFill" class="album album-anim" style="animation-play-state: {{isPlaying? 'running':'paused'}};" src="{{currentSong.al.picUrl}}"></image>
+        <view class="name">{{currentSong.name}}</view>
+    </view>
+    <view class="right">
+        <image class="icon play" src="{{isPlaying? pause_icon: play_icon}}" catchtap="hanldePlayBtnClick"></image>
+        <image class="icon playlist" src="{{playlist_icon}}" catchtap="handleMusicListBtnClick"></image>
     </view>
 </view>

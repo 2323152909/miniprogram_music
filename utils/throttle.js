@@ -1,8 +1,8 @@
 // 节流函数
 export default function throttle(fn, interval = 500, options = {
-    leading: true,
-    trailing: false
-}, ) {
+    leading: true, //开头一定执行
+    trailing: false //结尾一定执行
+}) {
     const {
         leading,
         trailing,
