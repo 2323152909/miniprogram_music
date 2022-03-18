@@ -6,7 +6,8 @@
         "pages/detail-search/index",
         "pages/detail-songs/index",
         "pages/music-player/index",
-        "components/navigation-bar/index"
+        "components/navigation-bar/index",
+        "pages/home-shop/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -27,6 +28,12 @@
                 "text": "视屏",
                 "iconPath": "assets/images/tabbar/video_normal.png",
                 "selectedIconPath": "assets/images/tabbar/video_active.png"
+            },
+            {
+                "pagePath": "pages/home-shop/index",
+                "text": "商城",
+                "iconPath": "assets/images/tabbar/shop_normal.png",
+                "selectedIconPath": "assets/images/tabbar/shop_active.png"
             }
         ]
     },

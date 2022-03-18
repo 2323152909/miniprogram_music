@@ -34,6 +34,8 @@ Page({
         sliderValue: 0, //音乐进度滑块的值，与currentTime相等，但是不建议使用同一个
 
         currentPage: 0,
+
+        showPlayList: false,
         // 静态文件
         playMusicImg: require("../../assets/images/player/play_music"),
         playNextImg: require("../../assets/images/player/play_next"),
@@ -121,7 +123,8 @@ Page({
             // 时间变化
             if (currentTime !== undefined && !this.data.isSliderChanging) {
                 this.setData({
-                    currentTime
+                    currentTime,
+                    sliderValue: currentTime
                 })
             }
             // 歌词变化
@@ -246,8 +249,22 @@ Page({
     handleNextBtnClick() {
         playerStore.dispatch("changeNewMusicAction")
     },
+    handlePlayListBtnClick() {
+        this.setData({
+            showPlayList: !this.data.showPlayList
+        })
+    },
+    closeBtnClick() {
+        this.setData({
+            showPlayList: false
+        })
+    },
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {},
+    onUnload: function () {
+        this.setData({
+            showPlayList: false
+        })
+    },
 })

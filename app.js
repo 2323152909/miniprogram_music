@@ -23,9 +23,27 @@ App({
         this.globalData.statusBarHeight = info.statusBarHeight
 
         // 2.让用户默认进行登录
+        this.handleLogin()
+
+        // 3.获取用户信息
+        // wx.getUserInfo({
+        //     lang: "zh_CN",
+        //     success: (res) => {
+        //         console.log(res);
+        //     }
+        // })
+        wx.getUserProfile({
+            desc: '你好啊，李银河',
+            lang: "zh_CN",
+            success: (res) => {
+                console.log(res);
+            }
+        })
+    },
+    async handleLogin() {
         const token = wx.getStorageSync(TOKEN_KEY)
         // token有没有过期
-        const checkResult = await checkToken(token)
+        const checkResult = await checkToken()
         // 判断session是否过期
         const isSessionExpire = await checkSession()
 

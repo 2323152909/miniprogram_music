@@ -156,3 +156,19 @@ page {
     color: #26ce8a;
     font-size: 36rpx;
 }
+
+.play-list {
+    position: fixed;
+    height: 60%;
+    width: 80%;
+    left: 50%;
+    bottom: 100rpx;
+    transform: translateX(-50%);
+    border-radius: 20rpx;
+    z-index: 999;
+    padding: 0 20rpx;
+    color: #000;
+    overflow: hidden;
+
+    background-color: #fff;
+}

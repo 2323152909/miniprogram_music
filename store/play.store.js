@@ -135,6 +135,7 @@ const playerStore = new HYEventStore({
             if (ctx.isPlaying && ctx.isStoping) {
                 audioContext.src = `https://music.163.com/song/media/outer/url?id=${ctx.id}.mp3`
                 audioContext.title = ctx.currentSong.name
+                audioContext.startTime = ctx.currentTime
                 ctx.isStoping = false
             }
             // 如果正在播放则进行暂停，否则就播放

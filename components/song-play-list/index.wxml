@@ -1,0 +1,15 @@
+<!--components/song-list/index.wxml-->
+<view class="header">
+    <area-header title="当前播放">
+        <image class="icon" src="{{closeIcon}}" bindtap="handleCloseBtnClick"></image>
+    </area-header>
+</view>
+
+<scroll-view scroll-y class="scroll-list">
+    <block wx:for="{{playListSongs}}" wx:key="id">
+        <view class="play-item {{index === playListIndex? 'active':''}}" bindtap="handlePlayItemClick" data-item="{{item}}" data-index="{{index}}">
+            <view class="name">{{item.name}}</view>
+            <view class="info"> - {{item.ar[0].name}}</view>
+        </view>
+    </block>
+</scroll-view>

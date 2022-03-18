@@ -1,6 +1,15 @@
 /* pages/home-music/index.wxss */
 page {
-    padding: 0 20rpx 20rpx;
+    padding: 112rpx 20rpx 20rpx;
+}
+
+/* 搜索框 */
+.search {
+    position: fixed;
+    top: 0;
+    left: 20rpx;
+    right: 20rpx;
+    z-index: 999;
 }
 
 /* 轮播图样式 */
@@ -89,4 +98,20 @@ page {
     to {
         transform: rotate(360deg);
     }
+}
+
+.play-list {
+    position: fixed;
+    height: 60%;
+    width: 80%;
+    left: 50%;
+    bottom: 100rpx;
+    transform: translateX(-50%);
+    border-radius: 20rpx;
+    z-index: 999;
+    padding: 0 20rpx;
+    color: #000;
+    overflow: hidden;
+
+    background-color: #fff;
 }

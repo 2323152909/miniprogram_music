@@ -19,26 +19,41 @@ export function getLoginCode() {
 export function codeToToken(code) {
     return hdLoginRequest.post("/login", {
         code
-    })
+    }, true)
 }
 
 // 判断token是否过期
-export function checkToken(token) {
-    return hdLoginRequest.post("/auth", {}, {
-        token
-    })
+export function checkToken() {
+    return hdLoginRequest.post("/auth", {}, true)
+}
+
+export function postFavorRequest(id) {
+    return hdLoginRequest.post("/post/favor", {
+        id
+    }, true)
 }
 
 // 判断session是否过期
-export function checkSession(){
+export function checkSession() {
     return new Promise((resolve, reject) => {
         wx.checkSession({
-          success: () => {
-              resolve(true)
-          },
-          fail:() => {
-              resolve(false)
-          }
+            success: () => {
+                resolve(true)
+            },
+            fail: () => {
+                resolve(false)
+            }
+        })
+    })
+}
+
+// 获取用户信息
+export function getUserInfo() {
+    return new Promise((resolve, reject) => {
+        wx.getUserProfile({
+            desc: '获取用户信息',
+            success: resolve,
+            fail: reject
         })
     })
 }

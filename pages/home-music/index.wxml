@@ -1,11 +1,11 @@
 <!--pages/home-music/index.wxml-->
 <!-- 1.歌曲搜索 -->
-<van-search placeholder="搜索喜欢的歌曲" background="#fafafa" shape="round" bind:click-input="handleSearchClick" />
+<van-search class="search" placeholder="搜索喜欢的歌曲" background="#fafafa" shape="round" bind:click-input="handleSearchClick" />
 
 <!-- 2.轮播图 -->
 <swiper class="swiper" autoplay interval="2000" circular indicator-dots style="height:{{swiperHeight}}px;">
     <block wx:for="{{banners}}" wx:key="bannerId">
-        <swiper-item itemid="{{index}}" class="swiper-item">
+        <swiper-item itemid="{{index}}" class="swiper-item" bindtap="handleSwiperItemClick" data-item="{{item}}" data-index="{{index}}">
             <image class="swiper-image" src="{{item.pic}}" mode="widthFix" bindload="handleSwiperImageLoaded"></image>
         </swiper-item>
     </block>
@@ -55,3 +55,6 @@
         <image class="icon playlist" src="{{playlist_icon}}" catchtap="handleMusicListBtnClick"></image>
     </view>
 </view>
+
+<!-- 播放列表展示 -->
+<song-play-list class="play-list" wx:if="{{showPlayList}}" bind:closeBtnClick="closeBtnClick"></song-play-list>

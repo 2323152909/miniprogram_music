@@ -30,6 +30,7 @@ Page({
 
         currentSong: {},
         isPlaying: false,
+        showPlayList: false,
 
         play_icon: require("../../assets/images/music/play_icon"),
         pause_icon: require("../../assets/images/music/pause_icon"),
@@ -153,6 +154,16 @@ Page({
     hanldePlayBtnClick() {
         playerStore.dispatch("operationPlayAction", !this.data.isPlaying)
     },
+    handleMusicListBtnClick() {
+        this.setData({
+            showPlayList: !this.data.showPlayList
+        })
+    },
+    closeBtnClick() {
+        this.setData({
+            showPlayList: false
+        })
+    },
     handleRightClick() {
         this.navigateToDetailSongsPage("hotRanking")
     },
@@ -170,5 +181,23 @@ Page({
         const index = event.currentTarget.dataset.index
         playerStore.setState("playListIndex", index)
         playerStore.setState("playListSongs", this.data.recommendSongs)
+    },
+    handleSwiperItemClick(event) {
+        const id = event.currentTarget.dataset.item.targetId
+        const song = event.currentTarget.dataset.item.song
+        // 如果没有歌曲就不跳转
+        if (!song) return
+        const index = event.currentTarget.dataset.index
+        // 1.页面跳转
+        wx.navigateTo({
+            url: `/pages/music-player/index?id=${id}`,
+        })
+
+        // 2.对歌曲的数据请求和其他操作
+        playerStore.dispatch("playMusicWithSongIdAction", {
+            id
+        })
+        playerStore.setState("playListIndex", index)
+        playerStore.setState("playListSongs", [song])
     }
 })

@@ -42,7 +42,7 @@
             <image mode="widthFix" class="btn btn-prev" src="{{playPrevImg}}" bindtap="handlePrevBtnClick"></image>
             <image mode="widthFix" class="btn btn-pause" src="{{isPlaying?playPauseImg:playResumeImg}}" bindtap="handleAudioPlayOrPause"></image>
             <image mode="widthFix" class="btn btn-next" src="{{playNextImg}}" bindtap="handleNextBtnClick"></image>
-            <image mode="widthFix" class="btn btn-music" src="{{playMusicImg}}"></image>
+            <image mode="widthFix" class="btn btn-music" bindtap="handlePlayListBtnClick" src="{{playMusicImg}}"></image>
         </view>
     </swiper-item>
     <swiper-item class="lyric">
@@ -53,3 +53,6 @@
         </scroll-view>
     </swiper-item>
 </swiper>
+
+<!-- 4.播放列表展示 -->
+<song-play-list class="play-list" wx:if="{{showPlayList}}" bind:closeBtnClick="closeBtnClick"></song-play-list>

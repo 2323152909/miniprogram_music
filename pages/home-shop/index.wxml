@@ -1,0 +1,4 @@
+<!--pages/home-profile/index.wxml-->
+<web-view src="http://120.79.64.82:7878"></web-view>
+<!-- <button open-type="getUserInfo" bindtap="handleGetUserInfo">获取用户信息</button>
+<button open-type="getPhoneNumber" bindgetphonenumber="handleGetPhoneNumber">获取手机号</button> -->

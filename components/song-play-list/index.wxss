@@ -1,0 +1,42 @@
+/* components/song-list/index.wxss */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* width: 100%; */
+    padding: 0 20rpx;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.header .icon {
+    height: 44rpx;
+    width: 44rpx;
+}
+
+.scroll-list {
+    padding-top: 44px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 40rpx;
+}
+
+.play-item {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+}
+
+.info {
+    font-size: 24rpx;
+    color: #999;
+}
+
+.scroll-list .active {
+    color: #f00 !important;
+}
