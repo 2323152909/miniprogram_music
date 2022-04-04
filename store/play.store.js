@@ -9,8 +9,8 @@ import {
     parseLyric
 } from "../utils/parse-lyric"
 
-const audioContext = wx.getBackgroundAudioManager()
-// const audioContext = wx.createInnerAudioContext()
+// const audioContext = wx.getBackgroundAudioManager()
+const audioContext = wx.createInnerAudioContext()
 
 const playerStore = new HYEventStore({
     state: {
